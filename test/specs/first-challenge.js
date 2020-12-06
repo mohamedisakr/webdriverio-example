@@ -1,5 +1,6 @@
+/*
 //
-describe("first challenge", () => {
+describe.skip("first challenge", () => {
   before(() => {
     browser.url("./");
   });
@@ -20,3 +21,4 @@ describe("first challenge", () => {
     expect(browser).toHaveUrl("http://localhost:8080", { containing: true });
   });
 });
+*/

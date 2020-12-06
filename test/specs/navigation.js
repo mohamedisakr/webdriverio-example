@@ -1,4 +1,5 @@
 const assert = require("assert");
+/*
 //
 describe.skip("homepage", () => {
   before(() => {
@@ -57,3 +58,4 @@ describe.skip("homepage", () => {
     expect(links).not.toHaveLength(5);
   });
 });
+*/
