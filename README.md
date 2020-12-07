@@ -33,8 +33,6 @@ https://w3c.github.io/webdriver/#locator-strategies
 
 1.
 
-```js
-before(() => {
-  browser.url("./");
-});
-```
+### Remarks
+
+1. register account page test case "Takes you to the home page once you register", it is redirect but checking not work as should be

@@ -1,6 +1,6 @@
 const auth = require("../page-objects/auth.page");
-
-describe("Login Page", () => {
+/*
+describe.skip("Login Page", () => {
   beforeEach(() => {
     browser.url("./login");
   });
@@ -22,6 +22,7 @@ describe("Login Page", () => {
     expect(auth.$errorMessages).toHaveText(`password can't be blank`);
   });
 });
+// */
 
 /*
 //
