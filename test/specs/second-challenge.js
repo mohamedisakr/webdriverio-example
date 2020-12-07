@@ -1,3 +1,4 @@
+/*
 //
 describe("second challenge", () => {
   before(() => {
@@ -24,3 +25,4 @@ describe("second challenge", () => {
     expect(popularTages).toHaveTextContaining("Popular Tags");
   });
 });
+*/
