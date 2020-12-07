@@ -1,4 +1,4 @@
-// 2.3.6 Chapter Challenge
+/*
 
 describe("third challenge", () => {
   //
@@ -56,5 +56,6 @@ describe("third challenge", () => {
     expect(browser.getUrl).not.toContain("/login");
   });
 
-  //   */
+  //   
 });
+*/
