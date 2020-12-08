@@ -14,6 +14,10 @@ class Editor {
   get $publish() {
     return $('[data-qa-id="editor-publish"]');
   }
+
+  load() {
+    browser.url("./editor");
+  }
 }
 
 module.exports = new Editor();

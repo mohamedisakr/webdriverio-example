@@ -3,7 +3,7 @@ const { user1 } = require("../fixtures/users");
 // /*
 describe("Login Page", () => {
   beforeEach(() => {
-    browser.url("./login");
+    auth.load(); // browser.url("./login");
   });
 
   it("should let you log in", () => {

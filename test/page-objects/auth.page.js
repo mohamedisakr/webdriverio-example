@@ -12,6 +12,10 @@ class Auth {
     return $(".error-messages li");
   }
 
+  load() {
+    browser.url("./login");
+  }
+
   login(user) {
     const { email, password } = user;
     this.$email.setValue(email);

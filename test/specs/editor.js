@@ -5,14 +5,14 @@ const { user1 } = require("../fixtures/users");
 describe("Post Editor", () => {
   //
   before(() => {
-    browser.url("./login");
+    auth.load(); // browser.url("./login");
     const { email, password } = user1;
     auth.login(email, password); //("demo@learnwebdriverio.com", "wdiodemo");
   });
 
   //
   beforeEach(() => {
-    browser.url("./editor");
+    editor.load(); // browser.url("./editor");
   });
 
   it("should assert the page fields are correct", () => {
