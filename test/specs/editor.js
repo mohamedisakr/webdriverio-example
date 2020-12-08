@@ -5,7 +5,8 @@ const { user1 } = require("../fixtures/users");
 describe("Post Editor", () => {
   //
   before(() => {
-    auth.load(); // browser.url("./login");
+    // no need to call load function as we call it from login function in auth page object
+    // auth.load();
     const { email, password } = user1;
     auth.login(email, password); //("demo@learnwebdriverio.com", "wdiodemo");
   });
@@ -26,6 +27,6 @@ describe("Post Editor", () => {
 
   it("should show correct url", () => {
     // // Assert the URL is correct
-    expect(browser).toHaveUrl(editor.url, { containing: true });
+    expect(browser).toHaveUrl(editor.url.href);
   });
 });

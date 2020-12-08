@@ -1,5 +1,6 @@
 const page = require("../page-objects/editor.page");
 const PageBase = require("./base.page");
+
 class Auth extends PageBase {
   constructor() {
     super("./login");
@@ -18,6 +19,7 @@ class Auth extends PageBase {
   }
 
   login(user) {
+    super.load();
     const { email, password } = user;
     this.$email.setValue(email);
     this.$password.setValue(password);
