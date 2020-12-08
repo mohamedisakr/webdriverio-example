@@ -26,6 +26,6 @@ describe("Post Editor", () => {
 
   it("should show correct url", () => {
     // // Assert the URL is correct
-    expect(browser).toHaveUrl("editor", { containing: true });
+    expect(browser).toHaveUrl(editor.url, { containing: true });
   });
 });

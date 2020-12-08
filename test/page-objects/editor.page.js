@@ -19,10 +19,6 @@ class Editor extends PageBase {
   get $publish() {
     return $('[data-qa-id="editor-publish"]');
   }
-
-  // load() {
-  //   browser.url("./editor");
-  // }
 }
 
 module.exports = new Editor();
