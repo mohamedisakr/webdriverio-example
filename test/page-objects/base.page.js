@@ -12,6 +12,7 @@ class PageBase {
     browser.url(this.path);
   }
 
+  /*
   // Add element references to the Generic page for common items like the site navigation
   // and page footer
   footer() {
@@ -21,6 +22,7 @@ class PageBase {
   navigation() {
     browser.url(new URL("settings", browser.config.baseUrl));
   }
+  */
 }
 
 module.exports = PageBase;

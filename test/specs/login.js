@@ -1,13 +1,12 @@
 const auth = require("../page-objects/auth.page");
 const { user1 } = require("../fixtures/users");
-// /*
-describe("Login Page", () => {
+/*
+describe.skip("Login Page", () => {
   // no need for beforeEach as we call load function from login function in auth page object
-  /*
-  beforeEach(() => {
-    auth.load(); // browser.url("./login");
-  });
-  */
+  // beforeEach(() => {
+  //   auth.load(); // browser.url("./login");
+  // });
+  
 
   it("should let you log in", () => {
     auth.login(user1); // auth.login({email, password});
@@ -26,3 +25,4 @@ describe("Login Page", () => {
     expect(auth.$errorMessages).toHaveText(`password can't be blank`);
   });
 });
+*/

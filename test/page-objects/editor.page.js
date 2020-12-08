@@ -11,7 +11,9 @@ class Editor extends PageBase {
     return $('[data-qa-id="editor-description"]');
   }
   get $body() {
-    return $('[data-qa-id="editor-body"]');
+    return $(
+      "[data-qa-id='editor-body'] [class='auto-textarea-input no-border no-resize']"
+    ); //$('[data-qa-id="editor-body"]');
   }
   get $tags() {
     return $('[data-qa-id="editor-tags"]');

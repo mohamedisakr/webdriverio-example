@@ -16,6 +16,13 @@ describe("Post Editor", () => {
     editor.load(); // browser.url("./editor");
   });
 
+  //
+  it("should show correct url", () => {
+    // // Assert the URL is correct
+    expect(browser).toHaveUrl(editor.url.href);
+  });
+
+  //
   it("should assert the page fields are correct", () => {
     // expect(browser).toHaveUrl("editor", { containing: true });
     expect(editor.$title).toBeExisting();
@@ -25,8 +32,21 @@ describe("Post Editor", () => {
     expect(editor.$publish).toBeExisting();
   });
 
-  it("should show correct url", () => {
-    // // Assert the URL is correct
-    expect(browser).toHaveUrl(editor.url.href);
+  //
+  it.only("should let you publish a new post", () => {
+    editor.$title.setValue("Test Title");
+    editor.$description.setValue("Test Description");
+    editor.$body.setValue("Test Body");
+    editor.$tags.setValue("Tag1");
+    editor.$tags.keys("Enter");
+    editor.$publish.click();
+
+    // expect to be on new article page
+    expect(browser).toHaveUrl("articles/test-title", { containing: true });
+
+    // to avoid making a lot of articles, let's just click the delete button to
+    // clean it up. We'll talk about a better way to clean it later on.
+    // $("button*=Delete Article").click();
+    $(".article-actions button").click();
   });
 });
