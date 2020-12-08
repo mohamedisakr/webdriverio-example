@@ -8,10 +8,10 @@
  */
 
 // const { $email, $password } = require("../page-objects/auth.page");
-
+/*
 const signup = require("../page-objects/signup.page");
 
-describe.only("Register Page", () => {
+describe("Register Page", () => {
   //
   beforeEach(() => {
     browser.url("./register");
@@ -75,21 +75,4 @@ describe.only("Register Page", () => {
     expect(browser.getUrl()).not.to.contain("register");
   });
 });
-
-// const urlToCheck = "http://localhost:8080";
-// browser.waitUtil(
-//   () => {
-//     return browser.getUrl() === urlToCheck;
-//   },
-//   { timoutMsg: 'The "Sign up" not redirect to homepage' }
-// );
-
-// browser.waitUntil(
-//   () => {
-//     let pageUrl = browser.getUrl();
-//     return pageUrl === urlToCheck;
-//   },
-//   { timoutMsg: 'The "Sign up" not redirect to homepage' }
-// );
-
-// expect(browser.getUrl()).to.equal(urlToCheck);
+*/
