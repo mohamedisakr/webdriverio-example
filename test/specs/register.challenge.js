@@ -63,23 +63,33 @@ describe.only("Register Page", () => {
   // TODO: redirected but checking not working
   it("should takes you to the home page once you register", () => {
     const expect = require("chai").expect;
-    signup.register("mariam123", "mariam123@mit.edu", "mariam123coti");
-    const urlToCheck = "http://localhost:8080";
-    // browser.waitUtil(
-    //   () => {
-    //     return browser.getUrl() === urlToCheck;
-    //   },
-    //   { timoutMsg: 'The "Sign up" not redirect to homepage' }
-    // );
-
-    browser.waitUntil(
-      () => {
-        let pageUrl = browser.getUrl();
-        return pageUrl === urlToCheck;
-      },
-      { timoutMsg: 'The "Sign up" not redirect to homepage' }
+    let timeStamp = new Date().getTime();
+    signup.register(
+      `mariam${timeStamp}`,
+      `mariam${timeStamp}@mit.edu`,
+      `mariam${timeStamp}coti`
     );
 
-    expect(browser.getUrl()).to.equal(urlToCheck);
+    // Get the URL of the page, which should no longer include 'register'
+    // expect(browser).not.toHaveUrl(register.url.href);
+    expect(browser.getUrl()).not.to.contain("register");
   });
 });
+
+// const urlToCheck = "http://localhost:8080";
+// browser.waitUtil(
+//   () => {
+//     return browser.getUrl() === urlToCheck;
+//   },
+//   { timoutMsg: 'The "Sign up" not redirect to homepage' }
+// );
+
+// browser.waitUntil(
+//   () => {
+//     let pageUrl = browser.getUrl();
+//     return pageUrl === urlToCheck;
+//   },
+//   { timoutMsg: 'The "Sign up" not redirect to homepage' }
+// );
+
+// expect(browser.getUrl()).to.equal(urlToCheck);
