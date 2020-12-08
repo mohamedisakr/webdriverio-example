@@ -12,7 +12,8 @@ class Auth {
     return $(".error-messages li");
   }
 
-  login(email, password) {
+  login(user) {
+    const { email, password } = user;
     this.$email.setValue(email);
     this.$password.setValue(password);
     this.$signIn.click();

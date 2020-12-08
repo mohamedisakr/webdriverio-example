@@ -1,11 +1,13 @@
 const auth = require("../page-objects/auth.page");
 const editor = require("../page-objects/editor.page");
+const { user1 } = require("../fixtures/users");
 //
 describe("Post Editor", () => {
   //
   before(() => {
     browser.url("./login");
-    auth.login("demo@learnwebdriverio.com", "wdiodemo");
+    const { email, password } = user1;
+    auth.login(email, password); //("demo@learnwebdriverio.com", "wdiodemo");
   });
 
   //

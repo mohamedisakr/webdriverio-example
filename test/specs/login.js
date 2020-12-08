@@ -1,23 +1,24 @@
 const auth = require("../page-objects/auth.page");
-/*
-describe.skip("Login Page", () => {
+const { user1 } = require("../fixtures/users");
+// /*
+describe("Login Page", () => {
   beforeEach(() => {
     browser.url("./login");
   });
 
   it("should let you log in", () => {
-    auth.login("demo@learnwebdriverio.com", "wdiodemo");
+    auth.login(user1); // auth.login({email, password});
     expect(auth.$errorMessages).not.toBeExisting();
   });
 
   it("should error with a missing username", () => {
-    auth.login("", "wdiodemo");
+    auth.login({ email: "", password: "wdiodemo" });
     // assert that error message is showing
     expect(auth.$errorMessages).toHaveText(`email can't be blank`);
   });
 
   it("should error with a missing password", () => {
-    auth.login("demo@learnwebdriverio.com", "");
+    auth.login({ email: "demo@learnwebdriverio.com", password: "" });
     // assert that error message is showing
     expect(auth.$errorMessages).toHaveText(`password can't be blank`);
   });
@@ -80,4 +81,4 @@ describe("Login Page", () => {
   });
 });
 //
-*/
+// */
