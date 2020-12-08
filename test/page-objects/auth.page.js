@@ -1,4 +1,9 @@
-class Auth {
+const page = require("../page-objects/editor.page");
+const PageBase = require("./base.page");
+class Auth extends PageBase {
+  constructor() {
+    super("./login");
+  }
   get $email() {
     return $('input[type="email"]');
   }
@@ -12,9 +17,9 @@ class Auth {
     return $(".error-messages li");
   }
 
-  load() {
-    browser.url("./login");
-  }
+  // load() {
+  //   browser.url("./login");
+  // }
 
   login(user) {
     const { email, password } = user;

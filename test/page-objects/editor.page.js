@@ -1,4 +1,9 @@
-class Editor {
+const PageBase = require("./base.page");
+
+class Editor extends PageBase {
+  constructor() {
+    super("./editor");
+  }
   get $title() {
     return $('[data-qa-id="editor-title"]');
   }
@@ -15,9 +20,9 @@ class Editor {
     return $('[data-qa-id="editor-publish"]');
   }
 
-  load() {
-    browser.url("./editor");
-  }
+  // load() {
+  //   browser.url("./editor");
+  // }
 }
 
 module.exports = new Editor();
