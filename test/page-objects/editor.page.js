@@ -21,6 +21,17 @@ class Editor extends PageBase {
   get $publish() {
     return $('[data-qa-id="editor-publish"]');
   }
+
+  submitArticle({ title, description, body, tags }) {
+    this.$title.setValue(title);
+    this.$description.setValue(description);
+    this.$body.setValue(body);
+    tags.forEach((tag) => {
+      this.$tags.setValue(tag);
+      this.$tags.keys("Enter");
+    });
+    this.$publish.click();
+  }
 }
 
 module.exports = new Editor();
