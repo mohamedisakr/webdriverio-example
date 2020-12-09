@@ -1,6 +1,9 @@
 const home = require("../page-objects/home.page");
 const auth = require("../page-objects/auth.page");
 const { user1 } = require("../fixtures/users");
+const Api = require("../utils/api");
+
+const api = new Api("http://localhost:3000/api/tags");
 
 describe("Homepage", () => {
   describe("Anonymous", () => {
@@ -37,5 +40,16 @@ describe("Homepage", () => {
     it("should show both the global feed tab", () => {
       expect(home.feedTabsText).toEqual(["Your Feed", "Global Feed"]);
     });
+
+    it("should default to showing the global feed", () => {
+      // get all tabs with an 'active' class, check only one returns with correct text
+      expect(home.activeFeedTabText).toEqual(["Global Feed"]);
+    });
+
+    // // TODO: postponse this test
+    // it("should show all tags", () => {
+    //   const tags = api.getAllTags();
+    //   expect(tags).toEqual(["ceroija", "liv"]);
+    // });
   });
 });

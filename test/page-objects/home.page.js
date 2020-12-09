@@ -1,4 +1,5 @@
 const PageBase = require("./base.page");
+const { getTrimmedText } = require("../utils/functions");
 
 class Home extends PageBase {
   constructor() {
@@ -10,7 +11,11 @@ class Home extends PageBase {
   }
 
   get feedTabsText() {
-    return this.$$feedTabs.map(($tab) => $tab.getText().trim());
+    return this.$$feedTabs.map(getTrimmedText);
+  }
+
+  get activeFeedTabText() {
+    return this.$$feedTabs.$$(".active").map(getTrimmedText);
   }
 }
 
