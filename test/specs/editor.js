@@ -1,6 +1,7 @@
 const Chance = require("chance");
 const auth = require("../page-objects/auth.page");
 const editor = require("../page-objects/editor.page");
+const article = require("../page-objects/article.page");
 const { user1 } = require("../fixtures/users");
 
 const chance = new Chance();
@@ -37,25 +38,21 @@ describe("Post Editor", () => {
 
   //
   it("should let you publish a new post", () => {
-    const article = {
+    const articleDetails = {
       title: chance.sentence({ words: 3 }),
       description: chance.sentence({ words: 7 }),
       body: chance.paragraph({ sentences: 4 }),
       tags: [chance.word(), chance.word()],
     };
-    editor.submitArticle(article);
 
-    const slug = articleDetails.title
-      .toLowerCase()
-      .replace(/ /g, "-")
-      .replace(/[^\w-]+/g, "");
+    editor.submitArticle(articleDetails);
 
-    // expect to be on new article page
-    expect(browser).toHaveUrl(`articles/${slug}`, { containing: true });
+    expect(article.$title).toHaveTextContaining(articleDetails.title);
+    expect(article.$body).toHaveTextContaining(articleDetails.body);
 
     // to avoid making a lot of articles, let's just click the delete button to
     // clean it up. We'll talk about a better way to clean it later on.
-    $("button*=Delete Article").click();
+    article.$delete.click();
     // $(".article-actions button").click();
   });
 });

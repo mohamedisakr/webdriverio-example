@@ -1,6 +1,6 @@
 const auth = require("../page-objects/auth.page");
 const { user1 } = require("../fixtures/users");
-// /*
+/*
 describe.skip("Login Page", () => {
   // no need for beforeEach as we call load function from login function in auth page object
   // beforeEach(() => {
