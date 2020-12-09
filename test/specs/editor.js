@@ -70,5 +70,19 @@ describe("Post Editor", () => {
       // validate alert is showing
       expect(() => browser.acceptAlert()).not.toThrow();
     });
+
+    it("should warn you when trying to change URL", () => {
+      // try going to the homepage
+      $("=Home").click();
+
+      const alertText = browser.getAlertText();
+
+      expect(alertText).toEqual(
+        "Do you really want to leave? You have unsaved changes!"
+      );
+
+      // accept the alert to avoid it from preventing further tests from executing
+      browser.acceptAlert();
+    });
   });
 });
