@@ -20,33 +20,22 @@ describe("Homepage", () => {
     });
   });
 
-  describe("Logged In", () => {
+  describe.only("Logged In", () => {
     before(() => {
-      // 1. Require our Api file
-      const Api = require("../../utils/Api");
-
-      // 2. Instantiate a new Api instance with the url of our Api
-      const api = new Api("http://localhost:3000/api/");
-
-      // 3. Call the `getAuthToken` function
-      const token = browser.call(() => {
-        return api.getAuthToken(user1);
-      });
-
-      // 4. Load the page in an unauthorized state
-      home.load();
-
-      // 5. Set the token
-      browser.execute((browserToken) => {
-        window.localStorage.setItem("id_token", browserToken);
-      }, token);
-
-      // 6. Reload the homepage
+      // browser.loginViaApi(user1);
+      // 2.7.7 Chapter Challenge
+      // - Rather than use the `addCommand` command, update the `Auth` page object to
+      //    have the `loginViaApi` functionality
+      auth.loginViaApi(user1);
       home.load();
     });
 
-    after(() => {
-      auth.clearSession();
+    // after(() => {
+    //   auth.clearSession();
+    // });
+
+    it("should show both the global feed tab", () => {
+      expect(home.feedTabsText).toEqual(["Your Feed", "Global Feed"]);
     });
   });
 });

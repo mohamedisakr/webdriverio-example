@@ -1,5 +1,8 @@
 const page = require("../page-objects/editor.page");
 const PageBase = require("./base.page");
+const Api = require("../utils/api");
+
+const api = new Api("http://localhost:3000/api/");
 
 class Auth extends PageBase {
   constructor() {
@@ -41,6 +44,20 @@ class Auth extends PageBase {
 
   clearSession() {
     browser.execute(() => window.localStorage.clear());
+  }
+
+  loginViaApi(user) {
+    const token = browser.call(() => {
+      return api.getAuthToken(user);
+    });
+
+    // load the base page so we can set the token
+    browser.url("./");
+
+    // inject the auth token
+    browser.execute((browserToken) => {
+      window.localStorage.setItem("id_token", browserToken);
+    }, token);
   }
 }
 

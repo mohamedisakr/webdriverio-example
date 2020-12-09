@@ -2,7 +2,7 @@ const auth = require("../page-objects/auth.page");
 const editor = require("../page-objects/editor.page");
 const article = require("../page-objects/article.page");
 const { user1 } = require("../fixtures/users");
-/*
+// /*
 //
 describe("Post Editor", () => {
   //
@@ -10,7 +10,12 @@ describe("Post Editor", () => {
     // no need to call load function as we call it from login function in auth page object
     auth.load();
     // const { email, password } = user1;
-    auth.login(user1); //("demo@learnwebdriverio.com", "wdiodemo");
+    // auth.login(user1); //("demo@learnwebdriverio.com", "wdiodemo");
+
+    // 2.7.7 Chapter Challenge
+    // - Update the `editor.js` test to use this new function
+    // (but not the `login.js` file, since we actually want to test the login page)
+    auth.loginViaApi(user1);
   });
 
   //
@@ -83,4 +88,4 @@ describe("Post Editor", () => {
     });
   });
 });
-*/
+// */
