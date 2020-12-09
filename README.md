@@ -8,11 +8,11 @@
 
 https://w3c.github.io/webdriver/#locator-strategies
 
-- CSS selector
-- Link text selector
-- Partial link text selector
-- Tag name
-- XPath selector
+1. CSS selector
+2. Link text selector
+3. Partial link text selector
+4. Tag name
+5. XPath selector
 
 ### 4 ways to interact with the value of text fields:
 
@@ -28,6 +28,13 @@ https://w3c.github.io/webdriver/#locator-strategies
 3. waitForDisplayed
 4. waitForClickable
 5. waitUntil
+
+### 4 "alert" related commands
+
+1. dismissAlert
+2. acceptAlert
+3. getAlertText
+4. sendAlertText
 
 ### Resources
 

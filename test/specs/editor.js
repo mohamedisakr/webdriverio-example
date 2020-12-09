@@ -56,4 +56,19 @@ describe("Post Editor", () => {
     article.$delete.click();
     // $(".article-actions button").click();
   });
+
+  //
+  describe('Alert "Unsaved Changes" alerts', () => {
+    beforeEach(() => {
+      editor.$title.setValue("Unsaved Change");
+    });
+
+    it("should alert you when using browser navigation", () => {
+      // try refreshing the page
+      browser.refresh();
+
+      // validate alert is showing
+      expect(() => browser.acceptAlert()).not.toThrow();
+    });
+  });
 });
