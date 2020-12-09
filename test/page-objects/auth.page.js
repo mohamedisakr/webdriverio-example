@@ -19,7 +19,7 @@ class Auth extends PageBase {
   }
 
   login(user) {
-    super.load();
+    // super.load();
     const { email, password } = user;
     this.$email.setValue(email);
     this.$password.setValue(password);

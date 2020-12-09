@@ -10,9 +10,9 @@ describe("Post Editor", () => {
   //
   before(() => {
     // no need to call load function as we call it from login function in auth page object
-    // auth.load();
-    const { email, password } = user1;
-    auth.login(email, password); //("demo@learnwebdriverio.com", "wdiodemo");
+    auth.load();
+    // const { email, password } = user1;
+    auth.login(user1); //("demo@learnwebdriverio.com", "wdiodemo");
   });
 
   //
@@ -49,6 +49,7 @@ describe("Post Editor", () => {
 
     expect(article.$title).toHaveTextContaining(articleDetails.title);
     expect(article.$body).toHaveTextContaining(articleDetails.body);
+    expect(article.tags).toEqual(articleDetails.tags);
 
     // to avoid making a lot of articles, let's just click the delete button to
     // clean it up. We'll talk about a better way to clean it later on.
