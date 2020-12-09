@@ -41,6 +41,30 @@ https://w3c.github.io/webdriver/#locator-strategies
 W3C's link checker
 https://validator.w3.org/checklink
 
+### API explanations
+
+- What is an API?
+  https://dev.to/mercier_remi/what-is-an-api-4ao9
+- What is an API Gateway?
+  https://dev.to/bearer/what-is-an-api-gateway-42i6
+- An Introduction to APIs
+  https://zapier.com/learn/apis/chapter-1-introduction-to-apis/
+- What exactly IS an API?
+  https://medium.com/@perrysetgo/what-exactly-is-an-api-69f36968a41f
+- Introduction to web APIs
+  https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction
+
+### Node.js HTTP request libraries
+
+- Got  
+  https://github.com/sindresorhus/got
+- node-fetch  
+  https://github.com/bitinn/node-fetch
+- Axios  
+  https://github.com/axios/axios
+- Request  
+  https://github.com/request/request
+
 ### Resources
 
 1.

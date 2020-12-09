@@ -23,6 +23,7 @@ const editor = require("../page-objects/editor.page");
 const article = require("../page-objects/article.page");
 const { user1 } = require("../fixtures/users");
 
+/*
 //
 describe("Post Editor", () => {
   //
@@ -38,3 +39,4 @@ describe("Post Editor", () => {
     editor.load(); // browser.url("./editor");
   });
 });
+*/
