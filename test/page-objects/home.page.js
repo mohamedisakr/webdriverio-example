@@ -6,8 +6,12 @@ class Home extends PageBase {
     super("./");
   }
 
+  get $feedsContainer() {
+    return $('[data-qa-id="feed-tabs"]');
+  }
+
   get $$feedTabs() {
-    return $$('[data-qa-id="feed-tabs"] [data-qa-type="feed-tab"]');
+    return this.$feedsContainer.$$('[data-qa-type="feed-tab"]');
   }
 
   get feedTabsText() {
@@ -15,7 +19,22 @@ class Home extends PageBase {
   }
 
   get activeFeedTabText() {
-    return this.$$feedTabs.$$(".active").map(getTrimmedText);
+    return this.$feedsContainer
+      .$$('[data-qa-type="feed-tab"] .active')
+      .map(getTrimmedText);
+  }
+
+  clickTab(tabText) {
+    const tabToClick = this.$$feedTabs.find(
+      ($tab) => $tab.getText() === tabText
+    );
+    tabToClick.click();
+    browser.waitUntil(
+      () => {
+        return this.activeFeedTabText[0] === tabText;
+      },
+      { timeoutMsg: "Active tab text never switched to desired text" }
+    );
   }
 }
 

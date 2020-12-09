@@ -46,6 +46,17 @@ describe("Homepage", () => {
       expect(home.activeFeedTabText).toEqual(["Global Feed"]);
     });
 
+    it("should let you switch between global and personal feeds", () => {
+      // click on 'Your feed' tab
+      home.clickTab("Your Feed");
+      // // validate 'active' tabs are correct
+      expect(home.activeFeedTabText).toEqual(["Your Feed"]);
+      // click 'Global' tab
+      home.clickTab("Global Feed");
+      // validate again
+      expect(home.activeFeedTabText).toEqual(["Global Feed"]);
+    });
+
     // // TODO: postponse this test
     // it("should show all tags", () => {
     //   const tags = api.getAllTags();
@@ -53,3 +64,23 @@ describe("Homepage", () => {
     // });
   });
 });
+
+// // the old way
+// it("should let you switch between global and personal feeds", function () {
+//   // get the tab that has `Your Feed` as text
+//   const yourFeedTab = home.$$feedTabs.find(
+//     ($tab) => $tab.getText() === "Your Feed"
+//   );
+//   // Click on that tab
+//   yourFeedTab.click();
+//   // Validate 'active' tab is now `Your Feed`
+//   expect(home.activeFeedTabText).toEqual(["Your Feed"]);
+//   // get the tab that has `Global` as text
+//   const globalFeedTab = home.$$feedTabs.find(
+//     ($tab) => $tab.getText() === "Global Feed"
+//   );
+//   // Click on that tab
+//   globalFeedTab.click();
+//   // validate again
+//   expect(home.activeFeedTabText).toEqual(["Global Feed"]);
+// });
