@@ -2,7 +2,6 @@ const home = require("../page-objects/home.page");
 
 describe("Homepage", () => {
   before(() => {
-    // load the page
     home.load();
   });
 
@@ -11,5 +10,9 @@ describe("Homepage", () => {
     expect(home.$siteHeader).toBeExisting();
     expect(home.$siteFooter).toBeExisting();
     expect(home.$siteNav).toBeExisting();
+  });
+
+  it("should only show the global feed tab", function () {
+    expect(home.feedTabsText).toEqual(["Global Feed"]);
   });
 });

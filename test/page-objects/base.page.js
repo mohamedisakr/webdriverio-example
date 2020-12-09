@@ -23,8 +23,11 @@ class PageBase {
   get $siteFooter() {
     return $('[data-qa-id="site-footer"]');
   }
+}
 
-  /*
+module.exports = PageBase;
+
+/*
   // Add element references to the Generic page for common items like the site navigation
   // and page footer
   footer() {
@@ -35,6 +38,3 @@ class PageBase {
     browser.url(new URL("settings", browser.config.baseUrl));
   }
   */
-}
-
-module.exports = PageBase;
