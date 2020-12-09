@@ -1,18 +1,35 @@
 const home = require("../page-objects/home.page");
+const auth = require("../page-objects/auth.page");
+const { user1 } = require("../fixtures/users");
 
 describe("Homepage", () => {
-  before(() => {
-    home.load();
+  describe("Anonymous", () => {
+    before(() => {
+      home.load();
+    });
+
+    it("should load properly", () => {
+      // check that top nav/footer exist
+      expect(home.$siteHeader).toBeExisting();
+      expect(home.$siteFooter).toBeExisting();
+      expect(home.$siteNav).toBeExisting();
+    });
+
+    it("should only show the global feed tab", () => {
+      expect(home.feedTabsText).toEqual(["Global Feed"]);
+    });
   });
 
-  it("should load properly", () => {
-    // check that top nav/footer exist
-    expect(home.$siteHeader).toBeExisting();
-    expect(home.$siteFooter).toBeExisting();
-    expect(home.$siteNav).toBeExisting();
-  });
+  describe("Logged In", () => {
+    before(() => {
+      auth.load();
+      auth.login(user1);
 
-  it("should only show the global feed tab", function () {
-    expect(home.feedTabsText).toEqual(["Global Feed"]);
+      home.load();
+    });
+
+    after(() => {
+      auth.clearSession();
+    });
   });
 });

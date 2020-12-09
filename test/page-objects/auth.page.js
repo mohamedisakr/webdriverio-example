@@ -38,6 +38,10 @@ class Auth extends PageBase {
       }
     );
   }
+
+  clearSession() {
+    browser.execute(() => window.localStorage.clear());
+  }
 }
 
 module.exports = new Auth();
