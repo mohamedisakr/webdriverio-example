@@ -1,10 +1,8 @@
-const Chance = require("chance");
 const auth = require("../page-objects/auth.page");
 const editor = require("../page-objects/editor.page");
 const article = require("../page-objects/article.page");
 const { user1 } = require("../fixtures/users");
 
-// const chance = new Chance();
 //
 describe("Post Editor", () => {
   //
@@ -54,7 +52,6 @@ describe("Post Editor", () => {
     // to avoid making a lot of articles, let's just click the delete button to
     // clean it up. We'll talk about a better way to clean it later on.
     article.$delete.click();
-    // $(".article-actions button").click();
   });
 
   //
