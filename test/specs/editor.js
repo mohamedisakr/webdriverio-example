@@ -4,7 +4,7 @@ const editor = require("../page-objects/editor.page");
 const article = require("../page-objects/article.page");
 const { user1 } = require("../fixtures/users");
 
-const chance = new Chance();
+// const chance = new Chance();
 //
 describe("Post Editor", () => {
   //
@@ -39,10 +39,10 @@ describe("Post Editor", () => {
   //
   it("should let you publish a new post", () => {
     const articleDetails = {
-      title: chance.sentence({ words: 3 }),
-      description: chance.sentence({ words: 7 }),
-      body: chance.paragraph({ sentences: 4 }),
-      tags: [chance.word(), chance.word()],
+      title: global.chance.sentence({ words: 3 }),
+      description: global.chance.sentence({ words: 7 }),
+      body: global.chance.paragraph({ sentences: 4 }),
+      tags: [global.chance.word(), global.chance.word()],
     };
 
     editor.submitArticle(articleDetails);
