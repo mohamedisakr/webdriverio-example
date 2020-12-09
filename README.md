@@ -36,6 +36,11 @@ https://w3c.github.io/webdriver/#locator-strategies
 3. getAlertText
 4. sendAlertText
 
+### tool that checks for dead links
+
+W3C's link checker
+https://validator.w3.org/checklink
+
 ### Resources
 
 1.
