@@ -33,15 +33,15 @@ describe("Homepage", () => {
       home.load();
     });
 
-    describe("Personal Feed", function () {
-      before(function () {
+    describe("Personal Feed", () => {
+      before(() => {
         // ensure we're on the personal feed tab
         if (home.activeFeedTabText !== "Your Feed") {
           home.clickTab("Your Feed");
         }
       });
 
-      it("should show most recent articles from people you follow", function () {
+      it("should show most recent articles from people you follow", () => {
         expect(home.currentFeed.$$articles).toHaveChildren(1);
       });
     });
