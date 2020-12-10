@@ -1,22 +1,38 @@
-const got = require("got");
+// const got = require("got");
+const axios = require("axios");
 
 class Api {
-  constructor(prefixUrl) {
-    this.client = got.extend({
-      prefixUrl,
-      responseType: "json",
+  constructor(baseURL) {
+    this.api = axios.create({
+      baseURL,
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json",
     });
   }
 
   getAuthToken({ email, password }) {
-    return this.client
-      .post("./users/login", {
-        json: { user: { email, password } },
-      })
-      .then((response) => response.body.user.token);
+    return this.api
+      .post("/users/login", { user: { email, password } })
+      .then((res) => res.data.user.token);
+  }
+
+  async createArticle(user, details) {
+    const token = await this.getAuthToken(user);
+    const response = await this.api.post("articles", {
+      json: {
+        article: details,
+      },
+      headers: {
+        Authorization: `Token ${token}`,
+      },
+    });
+    return response.body.article;
   }
 
   async getAllTags() {
+    const response = await this.api.get("./api/tags");
+    console.log("The response is ", response);
+    return response.body.tags;
     // http://localhost:3000/api/tags
     // {
     //   "tags": [
@@ -24,13 +40,6 @@ class Api {
     //     "liv"
     // ]
     // }
-
-    // const { body } = this.client.get("./api/tags").json();
-    // return body.tags;
-
-    const response = await got("./api/tags");
-    console.log("The response is ", response);
-    return response.body.tags;
   }
 }
 
