@@ -1,4 +1,5 @@
 const PageBase = require("./base.page");
+const Feed = require("./components/feed");
 const { getTrimmedText } = require("../utils/functions");
 
 class Home extends PageBase {
@@ -28,18 +29,25 @@ class Home extends PageBase {
     return $('[data-qa-id="article-loading-indicator"]');
   }
 
+  get currentFeed() {
+    return new Feed('[data-qa-type="article-list"]');
+  }
+
+  load() {
+    super.load();
+    this.currentFeed.waitForLoad();
+  }
+
   clickTab(tabText) {
     const tabToClick = this.$$feedTabs.find(
       ($tab) => $tab.getText() === tabText
     );
     tabToClick.click();
-    browser.waitUntil(
-      () => {
-        return this.activeFeedTabText[0] === tabText;
-      },
-      { timeoutMsg: "Active tab text never switched to desired text" }
-    );
-    this.$articleLoadingIndicator.waitForExist({ reverse: true });
+    browser.waitUntil(() => this.activeFeedTabText[0] === tabText, {
+      timeoutMsg: "Active tab text never switched to desired text",
+    });
+    // this.$articleLoadingIndicator.waitForExist({ reverse: true });
+    this.currentFeed.waitForLoad();
   }
 }
 
