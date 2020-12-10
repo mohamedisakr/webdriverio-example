@@ -33,9 +33,22 @@ describe("Homepage", () => {
       home.load();
     });
 
-    // after(() => {
-    //   auth.clearSession();
-    // });
+    describe("Personal Feed", function () {
+      before(function () {
+        // ensure we're on the personal feed tab
+        if (home.activeFeedTabText !== "Your Feed") {
+          home.clickTab("Your Feed");
+        }
+      });
+
+      it("should show most recent articles from people you follow", function () {
+        expect(home.currentFeed.$$articles).toHaveChildren(1);
+      });
+    });
+
+    after(() => {
+      auth.clearSession();
+    });
 
     it("should show both the global feed tab", () => {
       expect(home.feedTabsText).toEqual(["Your Feed", "Global Feed"]);
