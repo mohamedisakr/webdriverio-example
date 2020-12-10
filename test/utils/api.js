@@ -29,6 +29,13 @@ class Api {
     return response.body.article;
   }
 
+  async deleteArticle(user, slug) {
+    const token = await this.getAuthToken(user);
+    return this.client.delete(`articles/${slug}`, {
+      headers: { Authorization: `Token ${token}` },
+    });
+  }
+
   async getAllTags() {
     const response = await this.api.get("./api/tags");
     console.log("The response is ", response);

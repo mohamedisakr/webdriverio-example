@@ -1,3 +1,4 @@
+const { use } = require("chai");
 const { user1 } = require("../fixtures/users");
 const Tag = require("../page-objects/tag.page");
 
@@ -23,6 +24,12 @@ describe("Tag Feed", () => {
 
     // load the page
     tagPage.load();
+  });
+
+  after(function () {
+    browser.call(() => {
+      return global.api.deleteArticle(user1, articleResponse.slug);
+    });
   });
 
   it("should have tag tab", () => {
