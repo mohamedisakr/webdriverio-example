@@ -24,6 +24,10 @@ class Home extends PageBase {
       .map(getTrimmedText);
   }
 
+  get $articleLoadingIndicator() {
+    return $('[data-qa-id="article-loading-indicator"]');
+  }
+
   clickTab(tabText) {
     const tabToClick = this.$$feedTabs.find(
       ($tab) => $tab.getText() === tabText
@@ -35,6 +39,7 @@ class Home extends PageBase {
       },
       { timeoutMsg: "Active tab text never switched to desired text" }
     );
+    this.$articleLoadingIndicator.waitForExist({ reverse: true });
   }
 }
 
