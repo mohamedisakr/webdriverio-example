@@ -3,8 +3,8 @@ const Feed = require("./components/feed");
 const { getTrimmedText } = require("../utils/functions");
 
 class Home extends PageBase {
-  constructor() {
-    super("./");
+  constructor(url = "./") {
+    super(url);
   }
 
   get $feedsContainer() {
@@ -51,4 +51,4 @@ class Home extends PageBase {
   }
 }
 
-module.exports = new Home();
+module.exports = Home; //new
