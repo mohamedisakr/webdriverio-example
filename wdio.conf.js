@@ -208,19 +208,19 @@ exports.config = {
     global.chance = new Chance(process.env.SEED + specs[0]);
     global.api = new Api("http://localhost:3000/api/");
 
-    browser.addCommand("loginViaApi", function (user) {
-      const token = browser.call(() => {
-        return global.api.getAuthToken(user);
-      });
+    // browser.addCommand("loginViaApi", function (user) {
+    //   const token = browser.call(() => {
+    //     return global.api.getAuthToken(user);
+    //   });
 
-      // load the base page so we can set the token
-      browser.url("./");
+    //   // load the base page so we can set the token
+    //   browser.url("./");
 
-      // inject the auth token
-      browser.execute((browserToken) => {
-        window.localStorage.setItem("id_token", browserToken);
-      }, token);
-    });
+    //   // inject the auth token
+    //   browser.execute((browserToken) => {
+    //     window.localStorage.setItem("id_token", browserToken);
+    //   }, token);
+    // });
   },
   /**
    * Runs before a WebdriverIO command gets executed.
